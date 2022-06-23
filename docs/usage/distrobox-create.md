@@ -46,7 +46,7 @@ graphical apps (X11/Wayland), and audio.
 # EXAMPLES
 
 	distrobox create --image alpine:latest --name test --init-hooks "touch /var/tmp/test1 && touch /var/tmp/test2"
-	distrobox create --image fedora:35 --name test --additional-flags "--env MY_VAR-value"
+	distrobox create --image fedora:35 --name test --additional-flags "--env MY_VAR=value"
 	distrobox create --image fedora:35 --name test --volume /opt/my-dir:/usr/local/my-dir:rw --additional-flags "--pids-limit -1"
 	distrobox create -i docker.io/almalinux/8-init --init --name test --pre-init-hooks "dnf config-manager --enable powertools && dnf -y install epel-release"
 	distrobox create --clone fedora-35 --name fedora-35-copy
@@ -89,7 +89,7 @@ same standard as `docker` and `podman` to specify the mount point so `--volume S
 During container creation, it is possible to specify (using the additional-flags) some
 environment variables that will persist in the container and be independent from your environment:
 
-	distrobox create --image fedora:35 --name test --additional-flags "--env MY_VAR-value"
+	distrobox create --image fedora:35 --name test --additional-flags "--env MY_VAR=value"
 
 The `--init-hooks` is useful to add commands to the entrypoint (init) of the container.
 This could be useful to create containers with a set of programs already installed, add users, groups.
